@@ -13,14 +13,14 @@ class Home extends React.Component {
         data:{movies},
       },
     } = await axios.get
-    ('http://yts.mx/api/y2/list_movies.json?sort_by=rating');
-    this.setState({movies, isLoading:false});
+    ('https://yts.mx/api/v2/list_movies.json?sort_by=rating');
+    this.setState({movies, isLoading:false });
   };
-  ComponentDidMount(){
+  componentDidMount(){
    this.getMovies();
   }
   render() {
-    const {isLoading} = this.state;
+    const {isLoading,movies} = this.state;
     return(
       <section className="container">
         {isLoading? (
@@ -31,7 +31,7 @@ class Home extends React.Component {
         ) : (
           <div className="movies">
             {movies.map((movie) => (
-              <Movie>
+              <Movie
                 key={movie.id}
                 id={movie.id}
                 year={movie.year}
@@ -39,7 +39,7 @@ class Home extends React.Component {
                 summary={movie.summary}
                 poster={movie.medium_cover_image}
                 genres={movie.genres}
-              </Movie>
+              />
             ))}
           </div>
         )      

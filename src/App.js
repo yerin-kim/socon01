@@ -1,21 +1,19 @@
 import React from 'react';
-//import proptypes from 'prop-types';
-//import Potato from './Potato';
-import '.App.css';
+import './App.css';
 import {HashRouter, Route} from 'react-router-dom';
 import About from './routes/About';
-import Home from './Components/Navigation';
+import Home from './routes/Home';
 import Detail from './routes/Detail';
-import Navigation from './Components/Navigation';
+import Navigation from './components/Navigation';
 
 function App() {
   return (
   <HashRouter>
-    <Navigation>
+    <Navigation/>
       <Route path ="/" exact={true} component={Home} ></Route>
       <Route path ="/about"component={About} ></Route>
-      <Route path ="/movie-detail"component={Detail} ></Route>
-    </Navigation>
+      <Route path ="/movie-detail" component={Detail} ></Route>
+  
   </HashRouter>
   );
   }
